@@ -1,9 +1,9 @@
-# tcc
+# TCC - An adaptive action game
 This game prototype was developed as a Term Paper for my CS Major at USP São Carlos (University of São Paulo). It's objetcitve is to show the viablity of using evolutive algorithms as a game mechanic and difficulty calibration mechanism.
 
 ### INTRODUCTION
 
-This is a simple action game with no victory condition in which your objectives are to destroy the enemies as many times as you can and avoid being killed by them. The enemies characteristics are randomly determined at first, but an Evolutive Algorithm adapts the next hordes based in their aptitude to harm you and vice versa to maximazie the game difficulty. There is no mechanism to prevent the game of becoming too difficult. It is expected that after a few generations the enemies become better shielded, have more Health Points and be equipped with weapons that you showed more difficulty in dodging.
+This is a simple action game with no victory condition in which your objectives are to destroy the enemies as many times as you can and avoid being killed by them. The enemies characteristics are randomly determined at first, but an Evolutive Algorithm adapts the next hordes based in their aptitude to harm you and vice versa to maximize the game difficulty. There is no mechanism to prevent the game of becoming too difficult. It is expected that after a few generations the enemies become better shielded, have more Health Points and be equipped with weapons that you showed more difficulty in dodging.
 
 The terrain is randomly generated every game to help to diversify the enemies. 
 
@@ -27,7 +27,7 @@ The robots are just a square shaped physical body that can have 0 to 4 parts att
 - Wheels: move the robot (if positioned adequately) and absorbs damage (0.5 multiplier)
 - Saw: move the robot, absorbs damage (x0.5) and deals damage on hit (x3)
 - Propeller: Applies a force in the opposite direction, takes double damage, deals 1x damage
-- Cannon: Deals 1x damage per shot, takes 1x damage
+- Cannon: Deals 1x damage per shot, takes 1x damage.
 These characteristics are not part of the DNA of the individual, therefore the AE does not act on them.
 
 ![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/parts1.png "parts1")
