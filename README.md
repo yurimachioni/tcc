@@ -7,6 +7,8 @@ This is a simple action game with no victory condition in which your objectives 
 
 The terrain is randomly generated every game to help to diversify the enemies. 
 
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/robots2.png "screenshot")
+
 ### CONTROLS
 
 - ->  moves character to the right
@@ -28,10 +30,14 @@ The robots are just a square shaped physical body that can have 0 to 4 parts att
 - Cannon: Deals 1x damage per shot, takes 1x damage
 These characteristics are not part of the DNA of the individual, therefore the AE does not act on them.
 
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/parts1.png "parts1")
+
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/parts2.png "parts2")
+
 ### EVOLUTIVE ALGORITHM
 
 The DNA of the enemies (the characteristics that the evolutive algorithm selects and improves) is like follows
-
+```
 struct DNA{
     //enemy
     float e_maxLife;
@@ -61,7 +67,7 @@ struct DNA{
     float c_potency;     
     float c_potency_var;  
 };
-
+```
 ### SELECTION
 
 This structure is passed as argument to the constructor of each enemy after the Evolutive Algorithm is done with it.
@@ -92,6 +98,11 @@ If you choose not to use elitism, roulette selection will be used instead. That 
 6. With a chance of (mutation_rate) randomize each gene of each son
 7. After the player kills everyone again, go to (1) with the new generation.
 
+The graphs below show how the fitness (of the best individual and the mean of the generation) varies over the generations
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/fitness1.png "fitness1")
+
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/fitness2.jpg "fitness2")
+
 ### FITNESS FUNCTION
 
 The fitness function is not explicitly defined anywhere in the code, but its tied to several difficulty related aspects of the gameplay. Each bot has an internal score to which is added a value any time it shows to be performing well (in the task of killing/not being killed). For instance, if a bot hits the player with a cannon shot, it scores points. The actions that reward points to the score of a bot are:
@@ -100,6 +111,14 @@ The fitness function is not explicitly defined anywhere in the code, but its tie
   - Survive for one more second
   
 When the generation ends (everyone is killed by the player) it is passed to the AE with their score set. The score is used as a fitness measure upon which the selection algorithm is going to act. That means that an enemy that hit the player a lot, survived being hit a lot of times or was just neglected by the player for a long time will have a high fitness and therefore a high chance of being picked as a parent.
+
+### AFTERMATH
+
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/robots1.png "robots1")
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/robots3.png "robots3")
+
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/robots4.jpg "robots4")
+![alt text](https://github.com/yurimachioni/tcc/blob/master/prints/robots5.png "robots5")
 
 After enough generations, we see that the enemies start getting tougher, with more Health Points, their cannons start firing more frequently, their wheels become circular saws and no weak spots are left uncovered. Depending on the difficulty It is not uncommon that the game becomes unplayable or unenjoyable due to the difficulty. Some patterns that occur frequently are:
   - Propeller on top (flying bot) with cannon downward or every other side (high damage, hard to hit)
