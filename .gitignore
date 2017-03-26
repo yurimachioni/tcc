@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+LICENSE.freetype.txt
+LICENSE.jpeg.txt
+LICENSE.png.txt
+LICENSE.tiff.txt
+LICENSE.webp.txt
+LICENSE.zlib.txt
+out.txt
+tcc.layout
